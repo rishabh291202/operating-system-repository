@@ -1,0 +1,37 @@
+ SJF NON PREEMPTIVE:
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	// Matrix for storing Process Id, Burst
+	// Time, Average Waiting Time & Average
+	// Turn Around Time.
+	int A[100][4];
+	int i, j, n, total = 0, index, temp;
+	float avg_wt, avg_tat;
+@@ -17,14 +14,12 @@ int main() {
+
+	cout << "Enter Burst Time:" << endl;
+
+	// User Input Burst Time and alloting Process Id.
+	for (i = 0; i < n; i++) {
+		cout << "P" << i + 1 << ": ";
+		cin >> A[i][1];
+		A[i][0] = i + 1;
+	}
+
+	// Sorting process according to their Burst Time.
+	for (i = 0; i < n; i++) {
+		index = i;
+		for (j = i + 1; j < n; j++)
+@@ -52,8 +47,7 @@ int main() {
+	total = 0;
+	cout << "P	 BT	 WT	 TAT" << endl;
+
+	// Calculation of Turn Around Time and printing the
+	// data.
+
+	for (i = 0; i < n; i++) {
+		A[i][3] = A[i][1] + A[i][2];
+		total += A[i][3];
